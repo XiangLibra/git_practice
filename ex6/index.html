@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-Tw">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <title>goodFOOD</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <button onclick="topFunction()" id="myTop" title="top">TOP</button>
+    <nav id="myTopnav">
+        <a href="#" class="active"><i class="fa-solid fa-house-user fa-fw"></i>Home</a>
+        <a href="#"><i class="fa-solid fa-thumbs-up fa-fw"></i>About</a>
+        <a href="#"><i class="fa-solid fa-bag-shopping fa-fw"></i>Product</a>
+        <a href="#"><i class="fa-solid fa-map-location-dot fa-fw"></i>Contact</a>
+        <!--點擊這個連結實際上就只會執行navFunction-->
+        <a href="javascript:void(0);" class="icon" onclick="navFunction()"><i class="fa fa-bars"></i></a>             
+    </nav>
+	<header class="slideshow-container">
+		<div class="mySlideshows fade">
+		    <img src="img/slide01.jpg" style="width:100%" alt="">
+		    <div class="text">Healthy Eating</div>
+		</div>	  
+		<div class="mySlideshows fade">
+		    <img src="img/slide02.jpg" style="width:100%" alt="">
+		    <div class="text">Healthy Eating</div>
+		</div>	  
+		<div class="mySlideshows fade">
+		    <img src="img/slide03.jpg" style="width:100%" alt="">
+		    <div class="text">Healthy Eating</div>
+		</div>        
+        <div> <!--控制左右移動，當觸及時會啟動plusSlides的function-->
+		    <a class="prev" onclick="plusSlides(-1)">&#10092;</a>
+		    <a class="next" onclick="plusSlides(1)">&#10093;</a>
+	    </div>  
+	    <!--是包覆圓點的元件，每一個span都是一個點，觸及後會啟動currentSlide的function-->
+	    <div style="text-align:center">
+		    <span class="dot" onclick="currentSlide(1)"></span>
+		    <span class="dot" onclick="currentSlide(2)"></span>
+		    <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </header>
+    <section class="row">      
+        <article class="column">
+            <h2>Healthy Eating</h2>
+            <p class="text_column">健康飲食不僅僅是一種飲食方式，它是一種生活態度，一種關懷自己和地球的選擇。 在每一口健康飲食的背後，是一份對健康的投資，也是對環境的愛護。 它不僅讓您變得更加健康，還讓您成為地球的守護者。 讓我們一起享受健康飲食的美味，為我們的未來和子孫後代燃點希望之燭。</p>
+            <p class="text_column">無論你是想要在繁忙的一天中找到片刻的寧靜，還是和朋友分享歡樂時光，我們舒適的環境和友善的服務都將讓你賓至如歸。來一杯拿鐵，配上我們的手工甜點，讓自己沉浸在咖啡的香氣與美味之中。</p>
+        </article>
+        <article class="column">
+            <img src="img/vegetarian.png" width="100%" alt="vegetarian">
+        </article>
+    </section>
+    <section class="row">      
+        <article class="column">            
+            <h2>Healthy Eating</h2>
+            <p class="text_column">健康飲食不僅僅是一種飲食方式，它是一種生活態度，一種關懷自己和地球的選擇。 在每一口健康飲食的背後，是一份對健康的投資，也是對環境的愛護。 它不僅讓您變得更加健康，還讓您成為地球的守護者。 讓我們一起享受健康飲食的美味，為我們的未來和子孫後代燃點希望之燭。</p>
+            <p class="text_column">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>                                        
+        </article>
+        <article class="column">
+            <img src="img/vegetarian.jpg" width="100%" alt="food">
+        </article>
+    </section>
+    <section class="row"> 
+        <article class="column">
+           <h3>健康飲食，活力滿滿</h3>
+           <p class="text_column">每口食物都是對身體的投資，聰明選擇，健康加倍！愛自己，就從健康飲食開始吧！讓每一餐都成為療癒身心的小確幸！健康飲食不難，只要你願意給自己一個機會！</p>
+           <p class="text_column">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <img src="img/food1.jpg" width="100%" alt="">
+        </article>
+        <article class="column">
+           <h3>均衡飲食，健康一生</h3>
+           <p class="text_column">健康飲食也能超美味，讓你吃得滿足又健康！美味與健康兼具，讓你的味蕾和身體都開心！健康食材，創意料理，每一道菜都是驚喜！讓美食帶給你滿滿的活力！</p>
+           <p class="text_column">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <img src="img/food2.jpg" width="100%" alt="">
+        </article>
+    </section>
+    <div id="large-header">
+         <canvas id="demo-canvas"></canvas>
+    </div> 
+    <footer class="footer_banner" id="contact">
+        <img src="img/logo.png" width="120px" alt="logo">
+        <div>
+            <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
+            <a href="#"><i class="fa-brands fa-threads fa-2x"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube fa-2x"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram-square fa-2x"></i></a>
+            <a href="#"><i class="fa-brands fa-line fa-2x"></i></a> 
+        </div>   
+    </footer>     
+      <!-- Copyrights Section -->
+    <div class="copyright">&copy;<strong>momoco</strong> All Rights Reserved.</div>
+    <script src="js\nav.js"></script>    
+    <!--<script src="js\mySlides.js"></script>-->
+    <script src="js\mySlidesAuto.js"></script>
+    <script src="js\particles.js"></script>
+    <script src="js\topbutton.js"></script>        
+</body>
+</html>
