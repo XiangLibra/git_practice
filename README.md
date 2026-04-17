@@ -31,10 +31,20 @@
   - 子項
   - 子項
 `這是程式`
+1. 第一項
+2. 第二項
+   1. 第一子項
+   2. 第二子向
+   
 
 ``` python
 # 這是PYTHON程式碼
 print("Hello world")
+```
+
+```bash
+cd hello_world
+ls
 ```
 ```mermaid
 mindmap
