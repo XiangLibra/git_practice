@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的自我介紹</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease;
+        }
+
+        img {
+            width: 150px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 15px;
+        }
+
+        h2 {
+            border-left: 5px solid #4facfe;
+            padding-left: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: white;
+        }
+
+        /* 簡單動畫 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 手機版 */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>你好，我是XXX</h1>
+    <p>前端開發學習者 / 網頁設計愛好者</p>
+</header>
+
+<div class="container">
+
+    <section>
+        <img src="your-photo.jpg" alt="我的照片">
+        <h2>關於我</h2>
+        <p>
+            我是一名前端開發學習者，熱愛設計與程式開發，
+            喜歡把想法轉化成實際的網頁作品。
+        </p>
+    </section>
+
+    <section>
+        <h2>技能</h2>
+        <ul>
+            <li>HTML / CSS</li>
+            <li>JavaScript</li>
+            <li>基礎 UI 設計</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>聯絡方式</h2>
+        <p>Email：your@email.com</p>
+        <p>GitHub：github.com/yourname</p>
+    </section>
+
+</div>
+
+<footer>
+    <p>© 2026 XXX</p>
+</footer>
+
+</body>
+</html>
