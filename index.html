@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="科技未來風格的個人品牌自我介紹網站，展示個人定位、技能專長與聯絡方式。"
+  />
+  <title>YOUR NAME｜個人品牌</title>
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1026;
+      --panel: rgba(17, 25, 58, 0.68);
+      --panel-strong: rgba(16, 25, 54, 0.92);
+      --line: rgba(130, 230, 255, 0.2);
+      --text: #eef8ff;
+      --muted: #9fb3c8;
+      --primary: #57e6ff;
+      --secondary: #8f7cff;
+      --accent: #5effbd;
+      --danger: #ff6e9c;
+      --shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 15%, rgba(87, 230, 255, 0.14), transparent 28%),
+        radial-gradient(circle at 82% 22%, rgba(143, 124, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 50% 88%, rgba(94, 255, 189, 0.09), transparent 26%),
+        var(--bg);
+      font-family:
+        Inter, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei",
+        system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image:
+        linear-gradient(rgba(87, 230, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(87, 230, 255, 0.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page-glow {
+      position: fixed;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.16;
+      pointer-events: none;
+      z-index: -2;
+      animation: floatGlow 12s ease-in-out infinite alternate;
+    }
+
+    .glow-one {
+      top: 7%;
+      left: -120px;
+      background: var(--primary);
+    }
+
+    .glow-two {
+      right: -120px;
+      top: 48%;
+      background: var(--secondary);
+      animation-delay: -5s;
+    }
+
+    @keyframes floatGlow {
+      from { transform: translate3d(0, -20px, 0) scale(0.95); }
+      to { transform: translate3d(35px, 35px, 0) scale(1.08); }
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 8, 22, 0.7);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 0 24px rgba(87, 230, 255, 0.8);
+      transform: rotate(45deg);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 100%;
+      height: 2px;
+      transform: scaleX(0);
+      transform-origin: right;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: transform 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 70px;
+      padding: 90px 0 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: currentColor;
+      box-shadow: 0 0 12px currentColor;
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .hero h1 span {
+      display: block;
+      margin-top: 10px;
+      color: transparent;
+      background: linear-gradient(90deg, var(--primary), #f0fbff 45%, var(--secondary));
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-primary {
+      color: #041019;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 14px 36px rgba(87, 230, 255, 0.18);
+    }
+
+    .button-primary:hover {
+      box-shadow: 0 18px 42px rgba(87, 230, 255, 0.32);
+    }
+
+    .button-ghost {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--line);
+    }
+
+    .button-ghost:hover {
+      border-color: rgba(87, 230, 255, 0.6);
+    }
+
+    .hero-panel {
+      position: relative;
+      min-height: 500px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orbit {
+      position: absolute;
+      border: 1px solid rgba(87, 230, 255, 0.18);
+      border-radius: 50%;
+      animation: rotate 18s linear infinite;
+    }
+
+    .orbit-one {
+      width: 390px;
+      height: 390px;
+    }
+
+    .orbit-two {
+      width: 300px;
+      height: 300px;
+      animation-duration: 12s;
+      animation-direction: reverse;
+      border-style: dashed;
+    }
+
+    .orbit-three {
+      width: 220px;
+      height: 220px;
+      animation-duration: 8s;
+    }
+
+    .orbit::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 18px var(--primary);
+    }
+
+    .orbit-two::after {
+      background: var(--secondary);
+      box-shadow: 0 0 18px var(--secondary);
+    }
+
+    .orbit-three::after {
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent);
+    }
+
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
+
+    .identity-card {
+      position: relative;
+      z-index: 3;
+      width: min(320px, 82vw);
+      padding: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
+        var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .identity-card::before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      top: -70px;
+      right: -45px;
+      border-radius: 50%;
+      background: rgba(87, 230, 255, 0.2);
+      filter: blur(12px);
+    }
+
+    .avatar {
+      width: 86px;
+      height: 86px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 26px;
+      border-radius: 24px;
+      color: #07101f;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      font-size: 2rem;
+      font-weight: 900;
+      box-shadow: 0 18px 40px rgba(87, 230, 255, 0.2);
+    }
+
+    .identity-card h2 {
+      font-size: 1.75rem;
+    }
+
+    .identity-card p {
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 26px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: #c8ffec;
+      font-size: 0.92rem;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 14px var(--accent);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      50% { opacity: 0.45; transform: scale(0.8); }
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 42px;
+    }
+
+    .section-number {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+    }
+
+    .section-heading p {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+    }
+
+    .glass-card {
+      position: relative;
+      padding: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--radius-md);
+      background: var(--panel);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .glass-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.05) 45%,
+        transparent 70%
+      );
+      transform: translateX(-100%);
+      transition: transform 0.7s ease;
+    }
+
+    .glass-card:hover::after {
+      transform: translateX(100%);
+    }
+
+    .about-copy p + p {
+      margin-top: 18px;
+    }
+
+    .about-copy p {
+      color: #c9d7e6;
+    }
+
+    .data-list {
+      display: grid;
+      gap: 18px;
+      list-style: none;
+    }
+
+    .data-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .data-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .data-list span:first-child {
+      color: var(--muted);
+    }
+
+    .data-list strong {
+      text-align: right;
+      font-weight: 700;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .skill-card {
+      min-height: 270px;
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--radius-md);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.055), transparent),
+        rgba(9, 16, 40, 0.78);
+      transition:
+        transform 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(87, 230, 255, 0.42);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.3);
+    }
+
+    .skill-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 24px;
+      border: 1px solid rgba(87, 230, 255, 0.28);
+      border-radius: 16px;
+      background: rgba(87, 230, 255, 0.07);
+      color: var(--primary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-weight: 900;
+    }
+
+    .skill-card h3 {
+      font-size: 1.25rem;
+    }
+
+    .skill-card p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 24px;
+    }
+
+    .skill-tags span {
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      color: #c7d6e5;
+      background: rgba(255, 255, 255, 0.035);
+      font-size: 0.78rem;
+    }
+
+    .progress-list {
+      display: grid;
+      gap: 22px;
+      margin-top: 32px;
+    }
+
+    .progress-item {
+      padding: 22px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 12px;
+    }
+
+    .progress-top span:last-child {
+      color: var(--primary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .progress-track {
+      height: 8px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      box-shadow: 0 0 20px rgba(87, 230, 255, 0.32);
+      transition: width 1.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .cta-card {
+      padding: clamp(34px, 7vw, 72px);
+      text-align: center;
+      border: 1px solid rgba(87, 230, 255, 0.2);
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(87, 230, 255, 0.17), transparent 45%),
+        linear-gradient(145deg, rgba(14, 24, 54, 0.95), rgba(8, 13, 32, 0.95));
+      box-shadow: var(--shadow);
+    }
+
+    .cta-card h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      letter-spacing: -0.04em;
+    }
+
+    .cta-card p {
+      max-width: 680px;
+      margin: 18px auto 0;
+      color: var(--muted);
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(87, 230, 255, 0.45);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        gap: 20px;
+        padding-top: 72px;
+      }
+
+      .hero-panel {
+        min-height: 460px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max-width));
+      }
+
+      .menu-button {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        background: rgba(5, 8, 22, 0.96);
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 12px;
+        border-radius: 10px;
+      }
+
+      .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      section {
+        padding: 76px 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 16vw, 5.2rem);
+      }
+
+      .hero-panel {
+        min-height: 400px;
+      }
+
+      .orbit-one {
+        width: 320px;
+        height: 320px;
+      }
+
+      .orbit-two {
+        width: 250px;
+        height: 250px;
+      }
+
+      .orbit-three {
+        width: 180px;
+        height: 180px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-glow glow-one"></div>
+  <div class="page-glow glow-two"></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="回到首頁">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>YOUR.NAME</span>
+      </a>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="開啟導覽選單"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+      >
+        ☰
+      </button>
+
+      <ul class="nav-links" id="main-navigation">
+        <li><a href="#about">關於我</a></li>
+        <li><a href="#skills">技能專長</a></li>
+        <li><a href="#contact">聯絡我</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="home">
+      <div class="hero-content reveal">
+        <p class="eyebrow">Personal Brand / 2026</p>
+        <h1>
+          我是
+          <span>YOUR NAME</span>
+        </h1>
+        <p class="hero-copy">
+          我專注於把創意、技術與策略轉化成有影響力的數位體驗。
+          這裡展示我的核心能力、工作方式，以及我能為品牌與專案創造的價值。
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#skills">探索我的技能 →</a>
+          <a class="button button-ghost" href="mailto:hello@example.com">與我聯絡</a>
+        </div>
+      </div>
+
+      <div class="hero-panel reveal" aria-label="個人品牌視覺">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="orbit orbit-three"></div>
+
+        <article class="identity-card">
+          <div class="avatar" aria-hidden="true">YN</div>
+          <h2>YOUR NAME</h2>
+          <p>創作者・設計者・問題解決者</p>
+          <div class="status">
+            <span class="status-dot" aria-hidden="true"></span>
+            目前開放合作與交流
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-number">01 / PROFILE</span>
+          <h2>建立值得被記住的個人品牌</h2>
+          <p>
+            我相信好的個人品牌不只是漂亮的外表，而是清楚傳達「我是誰、擅長什麼，以及能解決什麼問題」。
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="glass-card about-copy reveal">
+            <p>
+              嗨，我是 <strong>YOUR NAME</strong>。我擅長整合創意與執行，
+              將抽象想法整理成清楚、可落地且具有辨識度的成果。
+            </p>
+            <p>
+              我的工作方式重視使用者需求、資訊架構與細節品質。
+              面對新挑戰時，我會快速拆解問題、驗證方向，再持續優化成果。
+            </p>
+            <p>
+              請將這三段文字替換成你的真實經歷、價值觀與個人定位，
+              網站就會從「模板」正式進化成「你的品牌」。
+            </p>
+          </article>
+
+          <aside class="glass-card reveal">
+            <ul class="data-list">
+              <li>
+                <span>身份定位</span>
+                <strong>個人品牌創作者</strong>
+              </li>
+              <li>
+                <span>專業領域</span>
+                <strong>設計 / 技術 / 行銷</strong>
+              </li>
+              <li>
+                <span>工作方式</span>
+                <strong>策略思考＋快速執行</strong>
+              </li>
+              <li>
+                <span>所在地</span>
+                <strong>Taiwan</strong>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-number">02 / EXPERTISE</span>
+          <h2>技能專長</h2>
+          <p>
+            以下內容可依你的實際能力修改。每張卡片代表一個核心能力領域，
+            下方進度條則適合呈現熟練度或投入程度。
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-icon">&lt;/&gt;</div>
+            <h3>前端開發</h3>
+            <p>建立快速、易用且支援各種裝置的互動式網站體驗。</p>
+            <div class="skill-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">UX</div>
+            <h3>介面設計</h3>
+            <p>從資訊架構、視覺層級到操作流程，提升整體使用體驗。</p>
+            <div class="skill-tags">
+              <span>UI Design</span>
+              <span>UX Thinking</span>
+              <span>Prototype</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">01</div>
+            <h3>品牌策略</h3>
+            <p>梳理定位、價值主張與溝通語言，建立一致的品牌印象。</p>
+            <div class="skill-tags">
+              <span>Positioning</span>
+              <span>Content</span>
+              <span>Identity</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="progress-list reveal">
+          <div class="progress-item">
+            <div class="progress-top">
+              <span>網頁前端與互動設計</span>
+              <span>90%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar" data-progress="90"></div>
+            </div>
+          </div>
+
+          <div class="progress-item">
+            <div class="progress-top">
+              <span>視覺設計與品牌表現</span>
+              <span>85%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar" data-progress="85"></div>
+            </div>
+          </div>
+
+          <div class="progress-item">
+            <div class="progress-top">
+              <span>溝通整合與專案執行</span>
+              <span>88%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar" data-progress="88"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="cta-card reveal">
+          <span class="section-number">03 / CONNECT</span>
+          <h2>一起創造下一個作品</h2>
+          <p>
+            正在尋找合作夥伴、品牌顧問或數位創作者嗎？
+            歡迎透過 Email 或社群平台與我聯絡。
+          </p>
+
+          <div class="cta-actions">
+            <a class="button button-primary" href="mailto:hello@example.com">
+              hello@example.com
+            </a>
+            <a
+              class="button button-ghost"
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="current-year"></span> YOUR NAME. All rights reserved.</p>
+      <p>Designed for a bold digital future.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector(".menu-button");
+    const navLinks = document.querySelector(".nav-links");
+    const navAnchors = document.querySelectorAll(".nav-links a");
+    const revealElements = document.querySelectorAll(".reveal");
+    const progressBars = document.querySelectorAll(".progress-bar");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("is-open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navAnchors.forEach((anchor) => {
+      anchor.addEventListener("click", () => {
+        navLinks.classList.remove("is-open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.textContent = "☰";
+      });
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add("is-visible");
+
+          if (entry.target.classList.contains("progress-list")) {
+            progressBars.forEach((bar) => {
+              bar.style.width = `${bar.dataset.progress}%`;
+            });
+          }
+
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.16 }
+    );
+
+    revealElements.forEach((element) => observer.observe(element));
+
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
